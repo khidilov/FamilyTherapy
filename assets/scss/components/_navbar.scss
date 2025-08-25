@@ -1,0 +1,162 @@
+@use "../variables" as *;
+@use "../mixins" as m;
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: $navbarheight;
+
+  background: $mobile-nav-bg;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  .container {
+    .row {
+      .navbar {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.2rem 0;
+        .logo {
+          width: 7rem;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .burger-menu {
+          display: none;
+          width: 30px;
+          cursor: pointer;
+        }
+
+        .burger-menu span {
+          display: block;
+          height: 3px;
+          margin: 6px 0;
+          background: $burger-line-color;
+          border-radius: 2px;
+          transition: 0.3s;
+        }
+        .navlist {
+          display: flex;
+          align-items: center;
+          gap: 4.1rem;
+          .navelement {
+            .navlink {
+              @include m.navelements();
+            }
+            & .cta.navlink {
+              @include m.btnpass();
+              &.act {
+                @include m.btnact;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  body {
+    &:has(#menu-togler:checked) {
+      overflow: hidden;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      overflow-x: clip;
+      &:has(input:checked) {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      .container {
+        .row {
+          .navbar {
+            .burger-menu {
+              position: relative;
+              z-index: 1000;
+              display: inline-block;
+              width: 30px;
+              height: 24px;
+              cursor: pointer;
+            }
+            .logo {
+              width: 3.8rem;
+            }
+
+            .burger-menu span {
+              position: absolute;
+              display: block;
+              height: 3px;
+              margin: 6px 0;
+              background: $burger-line-color;
+              border-radius: 2px;
+              transition: 0.3s;
+              left: 0;
+              width: 100%;
+              &:nth-child(1) {
+                top: 0;
+              }
+              &:nth-child(2) {
+                top: 10px;
+              }
+              &:nth-child(3) {
+                top: 20px;
+              }
+            }
+
+            .navlist {
+              flex-direction: column;
+              top: 0;
+              padding-top: 8rem;
+              position: fixed;
+              left: 0;
+              transform: translateX(100%);
+              gap: 2.1rem;
+              background: $mobile-nav-bg;
+              -webkit-backdrop-filter: blur(10px);
+              backdrop-filter: blur(10px);
+              width: 100%;
+              z-index: 3;
+              height: 100vh;
+              transition: all 0.5s ease;
+              .navelement {
+                .navlink {
+                  @include m.navelements();
+                  font-size: 2.1rem;
+                }
+                & .cta.navlink {
+                  @include m.btnact();
+                }
+              }
+            }
+            #menu-togler:checked {
+              & ~ .navlist {
+                transform: translateX(0);
+              }
+              &:checked + .burger-menu {
+                span {
+                  &:nth-child(1) {
+                    transform: rotate(45deg);
+                    top: 10px;
+                  }
+                  &:nth-child(2) {
+                    opacity: 0;
+                  }
+                  &:nth-child(3) {
+                    transform: rotate(-45deg);
+                    top: 10px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

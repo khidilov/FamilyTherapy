@@ -1,0 +1,123 @@
+@use "../variables" as *;
+@use "../mixins" as m;
+
+footer {
+  background-color: $footer-bg;
+  .container {
+    .row {
+      gap: 9.5rem;
+      padding-top: 15.7rem;
+      padding-bottom: 5.9rem;
+      flex-direction: column;
+      align-items: center;
+      .list {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        .footerrow {
+          display: flex;
+          flex-direction: column;
+          gap: 3.5rem;
+          li {
+            width: fit-content;
+            white-space: nowrap;
+            a {
+              text-align: center;
+              @include m.footeritems();
+            }
+            .adress {
+              display: inline-block;
+            }
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            padding: 0.8rem;
+
+            border-radius: 1rem;
+            &:hover {
+              background-color: rgb(0, 0, 51);
+              transform: scale(1.1);
+            }
+            img {
+              width: 4rem;
+              filter: grayscale(100);
+              filter: brightness(100);
+            }
+          }
+          .socials {
+            display: flex;
+            gap: 2.595rem;
+            a {
+              img {
+                width: 2.768rem;
+              }
+            }
+          }
+        }
+      }
+      .adress {
+        display: none;
+        @include m.footeritems();
+      }
+    }
+  }
+  .copyright {
+    @include m.footeritems();
+    font-weight: 300;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  footer {
+    .container {
+      .row {
+        gap: 4.25rem;
+        padding: 6.2rem 0;
+
+        .list {
+          justify-content: space-around;
+          gap: 4.2rem;
+          flex-wrap: wrap;
+          .footerrow {
+            gap: 2rem;
+            &:nth-child(1) {
+              align-self: center;
+            }
+            &:last-child {
+              text-align: center;
+              width: 100%;
+              gap: 1rem;
+            }
+            li {
+              width: 100%;
+              a {
+                word-break: break-all;
+              }
+              .adress {
+                display: none;
+              }
+            }
+
+            .socials {
+              align-self: center;
+              gap: 2rem;
+              a {
+                img {
+                  width: 2rem;
+                }
+              }
+            }
+          }
+        }
+        .adress {
+          display: inline-block;
+          text-align: center;
+        }
+      }
+
+      .copyright {
+        text-align: center;
+        @include m.footeritems();
+        font-weight: 300;
+      }
+    }
+  }
+}

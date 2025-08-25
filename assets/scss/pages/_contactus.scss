@@ -1,0 +1,109 @@
+@use "../variables" as *;
+@use "../mixins" as m;
+
+.form {
+  .container {
+    width: 39.33%;
+
+    .row {
+      gap: 1.4rem;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 12.565rem;
+      padding-top: 8.165rem;
+
+      .sectionTitle {
+        @include m.maintitle();
+      }
+
+      .paragraphtext {
+        margin-bottom: 5.6rem;
+        @include m.paragraphtext();
+        text-align: center;
+      }
+
+      form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 5.1rem;
+
+        input,
+        textarea {
+          @include m.forminput();
+          width: 100%;
+          border-radius: 1.734rem;
+          font-family: "Mulish", "Ubuntu", sans-serif;
+
+          &::placeholder {
+            color: rgba(107, 114, 128, 0.4);
+          }
+        }
+
+        textarea {
+          height: 21.2rem;
+        }
+
+        button {
+          @include m.btnact();
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .form {
+    .container {
+      width: 95%;
+
+      .row {
+        gap: 1.4rem;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 6rem;
+        padding-top: 4rem;
+
+        .sectionTitle {
+          @include m.maintitle();
+        }
+
+        .paragraphtext {
+          margin-bottom: 2.2rem;
+          @include m.paragraphtext();
+          text-align: center;
+        }
+
+        form {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+
+          input,
+          textarea {
+            @include m.forminput();
+            width: 100%;
+            border-radius: 1.734rem;
+            font-family: "Mulish", "Ubuntu", sans-serif;
+
+            &::placeholder {
+              color: rgba(107, 114, 128, 0.4);
+            }
+          }
+
+          textarea {
+            height: 15.2rem;
+            color: rgba(107, 114, 128, 0.4);
+          }
+
+          a {
+            @include m.btnact();
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}

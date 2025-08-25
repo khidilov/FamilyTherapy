@@ -1,0 +1,41 @@
+@use "../variables" as *;
+@use "../mixins" as m;
+.makeanAppointment {
+  background-color: $secondarybg;
+  .container {
+    .row {
+      padding-top: 13.1rem;
+      padding-bottom: 14.365rem;
+      flex-direction: column;
+      align-items: center;
+      gap: 5.6rem;
+      .sectiontitle {
+        @include m.sectiontitle();
+        text-align: center;
+        max-width: 60%;
+      }
+      div a.btnact {
+        @include m.btnact();
+        padding: 1.368rem 2.1rem;
+      }
+    }
+  }
+}
+
+.makeanAppointment.services {
+  background-color: white;
+}
+@media screen and (max-width: 992px) {
+  .makeanAppointment {
+    .container {
+      .row {
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+        gap: 2.5rem;
+        .sectiontitle {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}

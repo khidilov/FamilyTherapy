@@ -1,0 +1,73 @@
+@use "../variables" as *;
+@use "../mixins" as m;
+
+.issues {
+  .container {
+    .row {
+      flex-direction: column;
+      align-items: center;
+      padding: 11.7rem 0;
+      gap: 2.4rem;
+
+      .sectiontitle {
+        @include m.maintitle();
+        width: 60%;
+        text-align: center;
+      }
+
+      .sectionsubtitle {
+        @include m.paragraphtext();
+        margin-bottom: 5.2rem;
+      }
+
+      .issueslist {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5.3rem;
+
+        .issueitem {
+          list-style-image: url(/assets/images/icons/list-image.svg);
+          @include m.paragraphtext();
+          font-size: 1.8rem;
+          line-height: 30px;
+        }
+
+        margin-bottom: 3.8rem;
+      }
+
+      .btnpass {
+        @include m.btnpass();
+        padding: 1.368rem 6.05rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .issues {
+    .container {
+      .row {
+        padding: 6rem 0;
+        gap: 1.2rem;
+
+        .sectiontitle {
+          width: 100%;
+        }
+
+        .sectionsubtitle {
+          margin-bottom: 2.5rem;
+        }
+
+        .issueslist {
+          align-items: center;
+
+          .issueitem {
+            list-style-position: inside;
+            word-break: break-all;
+          }
+        }
+      }
+    }
+  }
+}
