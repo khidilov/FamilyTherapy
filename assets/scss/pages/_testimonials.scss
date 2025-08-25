@@ -1,8 +1,10 @@
 @use "../variables" as *;
 @use "../mixins" as m;
+
 .testimonials {
   background-color: $secondarybg;
   @include m.sectiondots(23px, 42px);
+
   .container {
     .row {
       padding-top: 9rem;
@@ -16,6 +18,7 @@
         width: 100%;
         text-align: center;
       }
+
       .carousel {
         overflow: hidden;
         width: 100%;
@@ -30,7 +33,9 @@
             transparent
           );
           -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
           -webkit-mask-size: 100% 100%;
+          mask-size: 100% 100%;
           mask-image: linear-gradient(
             to right,
             transparent,
@@ -44,9 +49,9 @@
           display: flex;
           gap: $testgap;
           justify-content: flex-start;
-
           will-change: transform;
           animation: scroll 20s linear infinite;
+
           .testimonial {
             @include m.testshadows();
             @include m.boxhovereffect();
@@ -56,17 +61,19 @@
             display: flex;
             flex-direction: column;
             gap: 2.2rem;
-
             flex: 0 0
               calc((100% - (#{$testcards - 1} * #{$testgap})) / #{$testcards});
+
             .top {
               display: flex;
               align-items: center;
               justify-content: space-between;
+
               .top-left {
                 display: flex;
                 align-items: center;
                 gap: 0.6rem;
+
                 .imgbox {
                   width: 5.6rem;
                   height: 5.6rem;
@@ -74,13 +81,13 @@
                   align-items: center;
                   justify-content: center;
                   text-align: center;
-
                   img {
                     text-align: center;
                     border-radius: 50%;
                   }
                 }
               }
+
               .titles {
                 .testtitle {
                   @include m.testtitletext();
@@ -89,6 +96,7 @@
                   @include m.testsubtitle();
                 }
               }
+
               .top-right {
                 width: 2.2rem;
                 height: 5.1rem;
@@ -97,16 +105,19 @@
                 }
               }
             }
+
             .testtext {
               @include m.testparagraph();
             }
           }
         }
+
         &:hover .track {
           animation-play-state: paused;
         }
       }
     }
+
     &.whitebg {
       background-color: #fff;
       .container {
@@ -118,6 +129,7 @@
       }
     }
   }
+
   &#expand {
     .carousel {
       .track {
@@ -125,6 +137,7 @@
       }
     }
   }
+
   &#salestest {
     background-color: #fff;
     .carousel {
@@ -147,6 +160,7 @@
     }
   }
 }
+
 @keyframes scroll {
   from {
     transform: translateX(0);
@@ -159,9 +173,7 @@
 @media screen and (max-width: 992px) {
   .testimonials {
     @include m.sectiondots(12px, 21px);
-    &::before {
-      width: 9.5%;
-    }
+    &::before,
     &::after {
       width: 9.5%;
     }
@@ -170,16 +182,18 @@
       .row {
         padding-top: 4.2rem;
         padding-bottom: 4.2rem;
-
         gap: 6rem;
+
         .sectiontitle {
           @include m.sectiontitle();
         }
+
         .carousel {
           .track {
             flex-direction: column;
             justify-content: center;
             align-items: center;
+
             .testimonial {
               width: 70%;
               padding: 3.4rem 3rem 3.3rem 2.7rem;
@@ -187,21 +201,13 @@
               display: flex;
               flex-direction: column;
               gap: 2.2rem;
-              &:nth-child(4) {
-                display: none;
-              }
-              &:nth-child(5) {
-                display: none;
-              }
-              &:nth-child(6) {
+              &:nth-child(n + 4) {
                 display: none;
               }
               .top {
                 .top-left {
                   .imgbox {
                     border-radius: 50%;
-                    img {
-                    }
                   }
                 }
                 .top-right {
@@ -216,11 +222,6 @@
           }
         }
       }
-    }
-  }
-  @keyframes scroll {
-    to {
-      transform: translateX(0);
     }
   }
 }

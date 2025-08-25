@@ -1,24 +1,29 @@
 @use "../variables" as *;
 @use "../mixins" as m;
+
 .solutions {
   .container {
     .row {
       flex-direction: column;
       justify-content: center;
       padding-top: 9.6rem;
+      padding-bottom: 10.6rem;
       text-align: center;
       gap: 2.4rem;
-      padding-bottom: 10.6rem;
+
       .sectiontitle {
         @include m.sectiontitle();
       }
+
       .paragraphtext {
         @include m.paragraphtext();
         margin: auto;
       }
+
       .grid-cards {
         grid-template-columns: repeat(3, 1fr);
         column-gap: 6.9rem;
+
         .card {
           display: flex;
           margin-top: 6.8rem;
@@ -29,6 +34,7 @@
           gap: 2.1rem;
           border-radius: 1rem;
           @include m.boxhovereffect();
+
           .imgbox {
             width: 6.51rem;
             height: 5.3rem;
@@ -43,9 +49,11 @@
               width: 100%;
             }
           }
+
           .cardtitle {
             @include m.cardtitle();
           }
+
           .paragraphtext {
             @include m.cardtext();
             margin: 0;
@@ -53,10 +61,10 @@
             text-align: start;
             margin-bottom: 2.1rem;
           }
+
           .btnpass {
-            width: 100%;
-            @include m.btnpass();
             width: fit-content;
+            @include m.btnpass();
             font-size: 1.294rem;
             padding: 1.106rem 2.9rem;
           }
@@ -84,8 +92,8 @@
     .container {
       .row {
         padding-top: 4.2rem;
-        gap: 1.2rem;
         padding-bottom: 4.2rem;
+        gap: 1.2rem;
 
         .grid-cards {
           grid-template-columns: repeat(1, 1fr);
@@ -103,6 +111,7 @@
             .imgbox {
               display: none;
             }
+
             .cardtitle {
               padding: 0 1rem;
               text-decoration: underline $components;
@@ -110,12 +119,13 @@
               white-space: wrap;
               text-align: left;
             }
+
             .paragraphtext {
               display: none;
             }
+
             .btnpass {
               width: 30%;
-
               padding: 1.4rem 1.2rem;
             }
           }

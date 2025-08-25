@@ -25,6 +25,7 @@
         flex-direction: column;
         justify-content: center;
         gap: 5.3rem;
+        margin-bottom: 3.8rem;
 
         .issueitem {
           list-style-image: url(/assets/images/icons/list-image.svg);
@@ -32,8 +33,6 @@
           font-size: 1.8rem;
           line-height: 30px;
         }
-
-        margin-bottom: 3.8rem;
       }
 
       .btnpass {

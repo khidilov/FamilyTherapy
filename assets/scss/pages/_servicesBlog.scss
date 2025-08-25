@@ -1,32 +1,38 @@
 @use "../variables" as *;
 @use "../mixins" as m;
+
 .what-we-offer.blog {
   background-color: $secondarybg;
+
   .container {
     .row {
       padding-top: 12.8rem;
       padding-bottom: 12.9rem;
       justify-content: space-between;
       gap: 12.4rem;
+
       span {
         display: none;
       }
+
       .imgbox {
         height: 53rem;
         width: 40%;
         @include m.imgndots(21px, 27px);
-
         img {
           border-radius: 21.4rem 0 21.6rem 21.9rem;
         }
       }
+
       .contentbox {
         width: 60%;
         gap: 1.1rem;
         @include m.contentbox();
+
         .secondarytitle {
           @include m.maintitle();
         }
+
         p {
           margin-bottom: 1rem;
         }
@@ -42,6 +48,7 @@
             list-style-position: inside;
           }
         }
+
         .cta {
           @include m.btnpass();
           margin-top: 3.3rem;
@@ -61,23 +68,28 @@
         align-items: center;
         flex-direction: column;
         gap: 2rem;
+
         span {
           display: inline-block;
           text-align: center;
           @include m.sectiontitle();
         }
+
         .imgbox {
           height: 40rem;
           width: 100%;
           @include m.imgndots(21px, 27px);
         }
+
         .contentbox {
           width: 100%;
           gap: 0.8rem;
           @include m.contentbox();
+
           .secondarytitle {
             display: none;
           }
+
           p {
             margin-bottom: 0.4rem;
           }
@@ -85,6 +97,7 @@
           ul {
             gap: 0.4rem;
           }
+
           .cta {
             margin-top: 1.2rem;
           }

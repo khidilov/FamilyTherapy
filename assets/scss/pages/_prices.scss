@@ -1,5 +1,6 @@
 @use "../variables" as *;
 @use "../mixins" as m;
+
 .prices {
   .container {
     .row {
@@ -13,9 +14,11 @@
         width: 60%;
         text-align: center;
       }
+
       .grid-cards {
         grid-template-columns: repeat(3, 1fr);
         column-gap: 9rem;
+
         .pricecard {
           border-radius: 1.5rem;
           display: flex;
@@ -24,9 +27,11 @@
           padding: 6.8rem;
           gap: 5.6rem;
           @include m.cardshadows();
+
           .tarrifname {
             @include m.cardtitle();
           }
+
           .price {
             .value,
             .currency {
@@ -34,15 +39,16 @@
               font-size: 6.5rem;
             }
           }
+
           .tarrifbenefits {
             display: flex;
             flex-direction: column;
             gap: 1.3rem;
+            margin-bottom: 4.1rem;
             li {
               list-style: disc;
               @include m.paragraphtext();
             }
-            margin-bottom: 4.1rem;
           }
 
           .btnpass {
@@ -60,28 +66,32 @@
       .row {
         padding: 7rem 0;
         gap: 6rem;
+
         .sectiontitle {
           width: 100%;
         }
+
         .grid-cards {
           grid-template-columns: repeat(1, 1fr);
           column-gap: 0;
           row-gap: 3rem;
+
           .pricecard {
             padding: 3.4rem;
             gap: 2.6rem;
           }
+
           .price {
             .value,
             .currency {
               font-size: 3.2rem;
             }
           }
+
           .tarrifbenefits {
             gap: 0.6rem;
-            li {
-            }
             margin-bottom: 2rem;
+            // ...existing code...
           }
         }
       }
